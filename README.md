@@ -1,6 +1,6 @@
-# Lanshu ComfyUI GGUF Library
+# Lanshu ComfyUI Library
 
-这是一个专为 ComfyUI 设计的 GGUF 模型加载库，包含工作流模板和 Colab 部署脚本，帮助用户快速体验 GGUF 格式模型的优势。
+这是一个专为 ComfyUI 设计的模型加载库，包含工作流模板和 Colab 部署脚本，帮助用户快速体验高效图像生成模型的优势。
 
 ## 库文件说明
 
