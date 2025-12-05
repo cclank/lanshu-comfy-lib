@@ -1,10 +1,11 @@
-# Lansu Z-Image GGUF Workflow Template
+# Lanshu ComfyUI GGUF Library
 
-这是一个用于 ComfyUI 的工作流模板，专门支持 GGUF 格式的模型加载，可以快速生成高质量图像。
+这是一个专为 ComfyUI 设计的 GGUF 模型加载库，包含工作流模板和 Colab 部署脚本，帮助用户快速体验 GGUF 格式模型的优势。
 
-## 文件说明
+## 库文件说明
 
 - `lansu-z-image-gguf.json`: ComfyUI 工作流模板文件，已配置好支持 GGUF 格式模型加载
+- `lansu_colab.ipynb`: Google Colab 笔记本文件，可用于在云端快速部署和运行 ComfyUI 及此工作流模板
 
 ## 用途
 
@@ -19,6 +20,19 @@
 
 1. 复制 `lansu-z-image-gguf.json` 文件内容
 2. 在 ComfyUI 页面中，直接粘贴到空白工作流区域即可
+
+### Colab 使用方法
+
+对于希望在云端快速体验此工作流的用户，我们提供了 Google Colab 笔记本文件 `lansu_colab.ipynb`：
+
+1. 在 Google Colab 中打开 `lansu_colab.ipynb` 文件
+2. 按顺序运行各个代码单元格
+3. 笔记本会自动完成以下操作：
+   - 克隆 ComfyUI 仓库
+   - 安装必要的依赖项
+   - 下载所需的模型文件
+   - 启动 ComfyUI 服务并通过 Cloudflare Tunnel 提供公网访问地址
+4. 获取公网访问地址后，即可在浏览器中访问 ComfyUI 并使用此工作流模板
 
 ## 必要准备
 
