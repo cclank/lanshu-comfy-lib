@@ -2,9 +2,35 @@
 
 这是一个专为 ComfyUI 设计的模型加载库，包含工作流模板和 Colab 部署脚本，帮助用户快速体验高效图像生成模型的优势。
 
+## 新增功能支持
+
+### Z-Image-Turbo-Fun-Controlnet 支持
+
+我们现在支持阿里巴巴最新发布的 Z-Image-Turbo-Fun-Controlnet 模型，该模型支持多种控制条件输入，为图像生成提供更多创意可能性。
+
+#### 模型安装步骤：
+
+1. 在 ComfyUI 根目录下创建 `model_patches` 文件夹（如不存在）
+2. 下载模型文件：
+   ```bash
+   wget https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union-2.0/resolve/main/Z-Image-Turbo-Fun-Controlnet-Union-2.0.safetensors?download=true -O ComfyUI/model_patches/Z-Image-Turbo-Fun-Controlnet-Union-2.0.safetensors
+   ```
+3. 重启 ComfyUI 服务使模型生效
+
+#### 推荐参数配置：
+
+当使用 QwenImageDiffsynthControlnet 节点时，推荐将 strength 参数设置为 `0.85` 以获得最佳效果。
+
+#### 功能特点：
+
+- 支持多种控制条件输入（如边缘检测、深度图、姿态估计等）
+- 与现有 Z-Image Turbo 工作流无缝集成
+- 提供更精确的图像控制能力
+
 ## 库文件说明
 
 - `lansu-z-image-gguf.json`: ComfyUI 工作流模板文件，已配置好支持 GGUF 格式模型加载
+- `zimage-controlnet.json`: ComfyUI ControlNet 工作流模板文件，支持 Z-Image-Turbo-Fun-Controlnet 模型
 - `lansu_colab.ipynb`: Google Colab 笔记本文件，可用于在云端快速部署和运行 ComfyUI 及此工作流模板
 
 ## 用途
@@ -16,10 +42,28 @@
 - 更低的内存占用
 - 保持良好的生成质量
 
+### Z-Image-Turbo-Fun-Controlnet 特性
+
+新增的 `zimage-controlnet.json` 工作流支持阿里巴巴最新发布的 Z-Image-Turbo-Fun-Controlnet 模型，该模型具有以下特性：
+
+- 支持多种控制条件输入（如边缘检测、深度图、姿态估计等）
+- 与现有 Z-Image Turbo 工作流无缝集成
+- 提供更精确的图像控制能力
+- 使用 QwenImageDiffsynthControlnet 节点，推荐 strength 参数设置为 `0.85`
+
 ## 使用方法
+
+### GGUF 工作流使用方法
 
 1. 复制 `lansu-z-image-gguf.json` 文件内容
 2. 在 ComfyUI 页面中，直接粘贴到空白工作流区域即可
+
+### ControlNet 工作流使用方法
+
+1. 复制 `zimage-controlnet.json` 文件内容
+2. 在 ComfyUI 页面中，直接粘贴到空白工作流区域即可
+3. 确保已安装 Z-Image-Turbo-Fun-Controlnet 模型（见下方模型安装说明）
+4. 加载输入图像并调整参数设置
 
 ### Colab 使用方法
 
@@ -52,14 +96,24 @@
 │   │      └── qwen_3_4b.safetensors
 │   ├── 📂 diffusion_models/
 │   │      └── z_image_turbo_q4_k_m.gguf (GGUF格式模型)
-│   └── 📂 vae/
-│          └── ae.safetensors
+│   ├── 📂 vae/
+│   │      └── ae.safetensors
+│   └── 📂 model_patches/
+│          └── Z-Image-Turbo-Fun-Controlnet-Union-2.0.safetensors (ControlNet模型)
 ```
 
 模型下载链接：
 - [qwen_3_4b.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors)
 - [z_image_turbo_q4_k_m.gguf](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_q4_k_m.gguf)
 - [ae.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors)
+- [Z-Image-Turbo-Fun-Controlnet-Union-2.0.safetensors](https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union-2.0/resolve/main/Z-Image-Turbo-Fun-Controlnet-Union-2.0.safetensors?download=true)
+
+ControlNet 模型安装命令：
+```bash
+wget https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union-2.0/resolve/main/Z-Image-Turbo-Fun-Controlnet-Union-2.0.safetensors?download=true -O ComfyUI/model_patches/Z-Image-Turbo-Fun-Controlnet-Union-2.0.safetensors
+```
+
+**注意**: 使用 QwenImageDiffsynthControlnet 节点时，推荐将 strength 参数设置为 `0.85` 以获得最佳效果。
 
 ## 工作流特点
 
