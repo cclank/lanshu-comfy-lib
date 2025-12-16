@@ -71,7 +71,7 @@
 
 本仓库包含一个示例图片文件，展示了 ControlNet 的工作效果：
 
-![ControlNet 示例效果图](Pasted%20Graphic%208.tiff)
+![ControlNet 示例效果图](controlnet-example.png)
 
 您可以使用此图片作为输入进行测试，或加载自己的图像进行实验。推荐使用清晰的图像作为输入以获得最佳效果。
 
